@@ -47,6 +47,26 @@ export default createGlobalStyle`
   z-index: 3;
 }
 
+h1 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.deleteButton {
+    background-color: #FF2323;
+    border: none;
+    border-radius: .25rem;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0;
+    padding: .5rem;
+
+      
+    &:hover {
+      background-color: ${darken(0.05, '#FF2323')};
+    }
+  }
 
   button {
     background-color: #27AAA2;

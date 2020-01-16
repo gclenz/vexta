@@ -43,6 +43,17 @@ export default function Municipios({ match }) {
     carregaMunicipio();
   }
 
+  async function deletaMunicipio() {
+    try {
+      await api.delete(`/municipios/${id}`);
+
+      toast.success('Municipio deletado com sucesso.');
+      history.push('/municipios');
+    } catch (err) {
+      toast.error('O municipio não pode ser deletado.');
+    }
+  }
+
   useEffect(() => {
     carregaMunicipio();
   }, [id]);
@@ -54,6 +65,13 @@ export default function Municipios({ match }) {
         <Content>
           <header>
             <h1>Editar municipio</h1>
+            <button
+              className="deleteButton"
+              type="button"
+              onClick={deletaMunicipio}
+            >
+              Deletar
+            </button>
             <button type="button" onClick={() => history.push('/municipios')}>
               Voltar
             </button>

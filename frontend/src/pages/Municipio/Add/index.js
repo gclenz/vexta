@@ -12,14 +12,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const schema = Yup.object().shape({
   nome: Yup.string().required('A razão social é obrigatória.'),
-  estado: Yup.string().required('O endereço é obrigatório.'),
+  uf: Yup.string().required('O endereço é obrigatório.'),
 });
 
 export default function Municipios() {
-  async function criarMunicipio({ nome, estado }) {
+  async function criarMunicipio({ nome, uf }) {
     const response = await api.post('/municipios', {
       nome,
-      estado,
+      uf,
     });
 
     toast.success(`Municipio ${response.data.nome} adicionado!`);
@@ -41,8 +41,8 @@ export default function Municipios() {
             <label htmlFor="nome">Nome</label>
             <Input name="nome" id="nome" placeholder="Nome do municipio" />
 
-            <label htmlFor="estado">Sigla do estado</label>
-            <Input name="estado" id="estado" placeholder="Sigla do estado" />
+            <label htmlFor="uf">Unidade Federal</label>
+            <Input name="uf" id="uf" placeholder="Unidade Federal" />
 
             <button type="submit">Adicionar</button>
           </Form>

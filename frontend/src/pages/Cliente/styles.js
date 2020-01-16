@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   align-items: center;
@@ -55,7 +56,25 @@ export const Content = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     align-self: center;
+
+    h1 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    button .deleteButton {
+      background-color: #ff2323;
+
+      &:hover {
+        background-color: ${darken(0.05, '#FF2323')};
+      }
+    }
+
+    button {
+      margin: 0;
+    }
   }
 
   form {

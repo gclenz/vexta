@@ -46,6 +46,17 @@ export default function Clientes({ match }) {
     carregaCliente();
   }
 
+  async function deletaCliente() {
+    try {
+      await api.delete(`/clientes/${id}`);
+
+      toast.success('Cliente deletado com sucesso.');
+      history.push('/clientes');
+    } catch (err) {
+      toast.error('O cliente não pode ser deletado.');
+    }
+  }
+
   async function carregaMunicipios() {
     const { data } = await api.get('/municipios');
 
@@ -71,6 +82,13 @@ export default function Clientes({ match }) {
         <Content>
           <header>
             <h1>Editar cliente</h1>
+            <button
+              className="deleteButton"
+              type="button"
+              onClick={deletaCliente}
+            >
+              Deletar
+            </button>
             <button type="button" onClick={() => history.push('/')}>
               Voltar
             </button>

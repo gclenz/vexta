@@ -6,6 +6,7 @@ module.exports = {
     options: {
       useUTC: false,
       dateFirst: 1,
+      encrypt: true,
     },
   },
   host: process.env.DB_HOST,
