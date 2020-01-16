@@ -1,17 +1,7 @@
-# VUTTR API
+### Como rodar o backend
+Abra um terminal e acesse a pasta do backend.
+Digite "yarn" ou "npm" para instalar as dependências.
+Enquanto as dependências são instaladas, crie um arquivo ".env" na raíz do projeto e preencha usando o exemplo presente no arquivo ".env.example.". Não se esqueça de não rodar o app numa porta que já está em uso.
+Digite "yarn start" ou "npm run start" e aguarde o seu navegador padrão abrir uma aba com o app.
 
-## Tech stack
-- Node.js
-- PostgreSQL
-
-### Dependencies
-- ESM - Allow our code to run using import/export (not supported on node 12.13.0 LTS). This makes easier to switch between back-end and front-end.
-- Express - A simple and lightweight Node.js web server.
-- Sequelize - An ORM to connect your application to SQL databases.
-- dotENV - A secure way to pass sensitive data to your application using environment variables.
-
-### Development Dependencies
-- Nodemon - Makes the server restart automatically on every code change.
-
-### Recommended Infrastructure Solutions
-- AWS RDS - PostgreSQL (you can use the free tier instance).
+Obs.: Certifique-se de estar rodando o frontend para poder consumir essa api mais facilmente.
