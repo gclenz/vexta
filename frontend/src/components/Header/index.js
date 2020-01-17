@@ -9,7 +9,9 @@ export default function Header() {
     <Container>
       <Content>
         <div>
-          <img src={logo} alt="Logo da Vexta" />
+          <Link to="/">
+            <img src={logo} alt="Logo da Vexta" />
+          </Link>
         </div>
         <nav>
           <Link to="/">Clientes</Link>

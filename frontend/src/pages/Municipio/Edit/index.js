@@ -11,16 +11,8 @@ import { Container, Content } from '../styles';
 import 'react-toastify/dist/ReactToastify.css';
 
 const schema = Yup.object().shape({
-  documento: Yup.number()
-    .integer()
-    .positive()
-    .required('O documento (CNPJ/CPF) é obrigatório.'),
   nome: Yup.string().required('A razão social é obrigatória.'),
-  endereco: Yup.string().required('O endereço é obrigatório.'),
-  municipioId: Yup.number()
-    .integer()
-    .positive()
-    .required('O ID do municipio é obrigatório.'),
+  uf: Yup.string().required('O endereço é obrigatório.'),
 });
 
 export default function Municipios({ match }) {
@@ -33,10 +25,9 @@ export default function Municipios({ match }) {
     setMunicipio(data);
   }
 
-  async function editaMunicipio({ nome, estado }) {
+  async function editaMunicipio({ nome }) {
     const response = await api.patch(`/municipios/${id}`, {
       nome,
-      estado,
     });
 
     toast.success(`Municipio ${response.data.nome} editado!`);
@@ -84,11 +75,11 @@ export default function Municipios({ match }) {
             <label htmlFor="nome">Nome</label>
             <Input name="nome" id="nome" placeholder="Nome do municipio" />
 
-            <label htmlFor="estado">Sigla do estado</label>
+            <label htmlFor="uf">Unidade Federal</label>
             <Input
-              name="estado"
-              id="estado"
-              placeholder="Sigla do estado"
+              name="uf"
+              id="uf"
+              placeholder="Unidade Federal. ex: SP"
               readOnly
             />
 

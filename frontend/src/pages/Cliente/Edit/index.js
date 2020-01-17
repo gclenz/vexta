@@ -18,10 +18,6 @@ const schema = Yup.object().shape({
     .required('O documento (CNPJ/CPF) é obrigatório.'),
   nome: Yup.string().required('A razão social é obrigatória.'),
   endereco: Yup.string().required('O endereço é obrigatório.'),
-  municipioId: Yup.number()
-    .integer()
-    .positive()
-    .required('O ID do municipio é obrigatório.'),
 });
 
 export default function Clientes({ match }) {
@@ -42,7 +38,7 @@ export default function Clientes({ match }) {
       endereco,
     });
 
-    toast.success(`Cliente ${response.data.nome} criado!`);
+    toast.success(`Cliente ${response.data.nome} editado!`);
     carregaCliente();
   }
 
