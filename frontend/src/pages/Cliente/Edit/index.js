@@ -47,7 +47,7 @@ export default function Clientes({ match }) {
       await api.delete(`/clientes/${id}`);
 
       toast.success('Cliente deletado com sucesso.');
-      history.push('/clientes');
+      history.push('/');
     } catch (err) {
       toast.error('O cliente não pode ser deletado.');
     }
